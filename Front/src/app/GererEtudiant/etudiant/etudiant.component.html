@@ -1,0 +1,51 @@
+<mat-card>
+    <b><span>G&eacute;rer les &eacute;tudiants</span></b>
+<button mat-flat-button color="primary" class="float-right" (click)="handleAddAction()">
+    <mat-icon>add_circle</mat-icon>Ajouter
+</button>
+</mat-card>
+<hr>
+<mat-card>
+    <mat-form-field appearance="standard">
+        <mat-label>Filtrer</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+</mat-card> 
+<hr>
+<div class="responsive_table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="matricule">
+            <th mat-header-cell *matHeaderCellDef>Matricule</th>
+            <td mat-cell *matCellDef="let element">{{element.matricule}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nom">
+            <th mat-header-cell *matHeaderCellDef>Nom</th>
+            <td mat-cell *matCellDef="let element">{{element.nom}}</td>
+        </ng-container>
+        <ng-container matColumnDef="prenom">
+            <th mat-header-cell *matHeaderCellDef>Pr&eacute;nom</th>
+            <td mat-cell *matCellDef="let element">{{element.prenom}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="niveau">
+            <th mat-header-cell *matHeaderCellDef>Niveau</th>
+            <td mat-cell *matCellDef="let element">{{element.niveau}}</td>
+        </ng-container>
+        <ng-container matColumnDef="departement">
+            <th mat-header-cell *matHeaderCellDef>Departement</th>
+            <td mat-cell *matCellDef="let element">{{element.nomDepartement}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="editer">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+                <button mat-icon-button color="primary" matTooltip="edit" (click)="handleEditAction(element)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"> </tr>
+        <tr mat-row *matRowDef="let row;columns:displayedColumns;"> </tr>
+    </table>
+</div> 

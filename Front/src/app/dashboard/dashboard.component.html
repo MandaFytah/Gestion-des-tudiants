@@ -1,0 +1,49 @@
+<body>
+    <mat-card>
+        <b><span>Dashboard</span></b>
+    </mat-card>
+    <br>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h2 class="title">Nombres d'etudiants:</h2>
+                    <h1 class="title">{{data?.category}}</h1>
+                    <p><button class="button" [routerLink]="['/gestionEtudiant/category']">Detail</button></p>
+                </div>
+            
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h2 class="title">Total pr&eacute;sent:</h2>
+                    <h1 class="title">{{data?.category}}</h1>
+                    <p><button class="button" [routerLink]="['/gestionEtudiant/category']">Detail</button></p>
+                </div>
+            
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h2 class="title">Total enseignant:</h2>
+                    <h1 class="title">{{data?.product}}</h1>
+                    <p><button class="button" [routerLink]="['/gestionEtudiant/category']">details</button></p>
+                </div>
+            
+            </div>
+        </div> 
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h2 class="title">Total cours:</h2>
+                    <h1 class="title">{{data?.bill}}</h1>
+                    <p><button class="button" [routerLink]="['/gestionEtudiant/bill']">details</button></p>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,43 @@
+<mat-card>
+    <b><span>G&eacute;rer la mati&egrave;re</span></b>
+<button mat-flat-button color="primary" class="float-right" (click)="handleAddAction()">
+    <mat-icon>add_circle</mat-icon>Ajouter
+</button>
+</mat-card>
+<hr>
+<mat-card>
+    <mat-form-field appearance="standard">
+        <mat-label>Filtrer</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+</mat-card> 
+<hr>
+<div class="responsive_table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="code">
+            <th mat-header-cell *matHeaderCellDef>Code</th>
+            <td mat-cell *matCellDef="let element">{{element.code}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nom">
+            <th mat-header-cell *matHeaderCellDef>Nom</th>
+            <td mat-cell *matCellDef="let element">{{element.nom}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="prof">
+            <th mat-header-cell *matHeaderCellDef>Id Prof</th>
+            <td mat-cell *matCellDef="let element">{{element.prof}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="editer">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+                <button mat-icon-button color="primary" matTooltip="edit" (click)="handleEditAction(element)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"> </tr>
+        <tr mat-row *matRowDef="let row;columns:displayedColumns;"> </tr>
+    </table>
+</div> 

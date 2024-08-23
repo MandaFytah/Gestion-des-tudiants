@@ -1,0 +1,104 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayout="row">
+    <span>Inscription Étudiant</span>
+    <span class="spacer"></span>
+    <button class="mat-dialog-close" mat-icon-button mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="formulaireStudentForm" (ngSubmit)="onSubmit()">
+    <div fxFlex fxLayout="column">
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Matricule</mat-label>
+        <input matInput formControlName="matricule" required>
+        <mat-error *ngIf="formulaireStudentForm.controls['matricule']?.touched && formulaireStudentForm.controls['matricule']?.invalid">
+          <span *ngIf="formulaireStudentForm.controls['matricule']?.errors?.required">Ce champ ne peut pas être vide.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Nom</mat-label>
+        <input matInput formControlName="nom" required>
+        <mat-error *ngIf="formulaireStudentForm.controls['nom']?.touched && formulaireStudentForm.controls['nom']?.invalid">
+          <span *ngIf="formulaireStudentForm.controls['nom']?.errors?.required">Ce champ ne peut pas être vide.</span>
+          <span *ngIf="formulaireStudentForm.controls.nom.errors?.pattern">Non valide.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Prénom</mat-label>
+        <input matInput formControlName="prenom">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Adresse</mat-label>
+        <input matInput formControlName="adresse">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Date de Naissance</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dateNaissance">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Lieu</mat-label>
+        <input matInput formControlName="lieu">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Téléphone</mat-label>
+        <input matInput formControlName="tel">
+        <mat-error *ngIf="formulaireStudentForm.controls['tel']?.touched && formulaireStudentForm.controls['tel']?.invalid">
+          <span *ngIf="formulaireStudentForm.controls['tel']?.errors?.required">Ce champ ne peut pas être vide.</span>
+          <span *ngIf="formulaireStudentForm.controls['tel']?.errors?.pattern">Format de téléphone non valide.</span>
+          <span *ngIf="formulaireStudentForm.controls.nom.errors?.pattern">Non valide.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required>
+        <mat-error *ngIf="formulaireStudentForm.controls['email']?.touched && formulaireStudentForm.controls['email']?.invalid">
+          <span *ngIf="formulaireStudentForm.controls['email']?.errors?.required">Ce champ ne peut pas être vide.</span>
+          <span *ngIf="formulaireStudentForm.controls['email']?.errors?.pattern">Format d'email non valide.</span>
+          <span *ngIf="formulaireStudentForm.controls.email.errors?.pattern">Non valide.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Niveau</mat-label>
+        <input matInput formControlName="classe">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Département</mat-label>
+        <input matInput formControlName="nomDepartement">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Année</mat-label>
+        <input matInput formControlName="annee">
+      </mat-form-field>
+
+      <!-- Remove mat-form-field for file input -->
+      <div fxFlex>
+        <label>Photo</label>
+        <input type="file" (change)="onFileSelected($event)">
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" type="submit" (click)="onSubmit()" [disabled]="!formulaireStudentForm.valid">
+    <mat-icon>save</mat-icon> Enregistrer
+  </button>
+  <button mat-raised-button color="warn" mat-dialog-close>
+    <mat-icon>close</mat-icon> Fermer
+  </button>
+</mat-dialog-actions>
