@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Information detaill&eacute;es</title>
+</head>
+<body>
+<table border="1" cellspacing="0" cellpadding="0" bgcolor="#ff7f50">
+    <thead>
+    <tr>
+        <td>idetudiant</td>
+        <td>matricule</td>
+        <td>nom</td>
+        <td>Prenom</td>
+        <td>adresse</td>
+        <td>dateNaissance</td>
+        <td>lieu</td>
+        <td>tel</td>
+        <td>email</td>
+        <!--td>ville</td>
+        <td>codePostal</td>
+        <td>pere</td>
+        <td>professionPere</td>
+        <td>cinPere</td>
+        <td>telPere</td>
+        <td>mere</td>
+        <td>professionMere</td>
+        <td>cinMere</td>
+        <td>telMere</td>
+        <td>tuteur </td>
+        <td>professionTuteur</td>
+        <td>cinTuteur</td>
+        <td>telTuteur</td-->
+        <td>classe</td>
+        <td>codeClasse</td>
+        <td>departement</td>
+        <td>codeDepartement</td>
+        <td>annee</td>
+        <!--td>bp</td-->
+        <td>filename</td>
+        <td>photo</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="Etudiant: ${lisitra}">
+        <td th:text="${Etudiant.getIdEtudiant}"></td>
+        <td th:text="${Etudiant.getMatricule}"></td>
+        <td th:text="${Etudiant.getNom}"></td>
+        <td th:text="${Etudiant.getPrenom}"></td>
+        <td th:text="${Etudiant.getAdresse}"></td>
+        <td th:text="${Etudiant.getDateNaissance}"></td>
+        <td th:text="${Etudiant.getLieu}"></td>
+        <td th:text="${Etudiant.getTel}"></td>
+        <td th:text="${Etudiant.getEmail}"></td>
+        <!--td th:text="${Etudiant.getVille}"></--td>
+        <td th:text="${Etudiant.getCodePostal}"></td>
+        <td th:text="${Etudiant.getPere}"></td>
+        <td th:text="${Etudiant.getProfessionPere}"></td>
+        <td th:text="${Etudiant.getCinPere}"></td>
+        <td th:text="${Etudiant.getTelPere}"></td>
+        <td th:text="${Etudiant.getMere}"></td>
+        <td th:text="${Etudiant.getProfessionMere}"></td>
+        <td th:text="${Etudiant.getCinMere}"></td>
+        <td th:text="${Etudiant.getTelMere}"></td>
+        <td th:text="${Etudiant.getTuteur}"></td>
+        <td th:text="${Etudiant.getProfessionTuteur}"></td>
+        <td th:text="${Etudiant.getCinTuteur}"></td>
+        <td th:text="${Etudiant.getTelTuteur}"></td-->
+        <td th:text="${Etudiant.getClasse}"></td>
+        <td th:text="${Etudiant.getCodeClasse}"></td>
+        <td th:text="${Etudiant.getDepartement}"></td>
+        <td th:text="${Etudiant.getCodeDepartement}"></td>
+        <!--td th:text="${Etudiant.getBp}"></td-->
+        <td th:text="${Etudiant.getPhoto}"></td>
+        <td th:text="${Etudiant.getFilename}"></td>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Etudiants infos</title>
+</head>
+<body>
+<!--span th:text="${lisitra}"/-->
+    <table border="1" cellspacing="0" cellpadding="0" bgcolor="#ff7f50">
+        <thead>
+            <tr>
+                <td>matricule</td>
+                <td>nom</td>
+                <td>Prenom</td>
+                <td>adresse</td>
+                <td>dateNaissance</td>
+                <td>lieu</td>
+                <td>tel</td>
+                <td>email</td>
+                <td>classe</td>
+                <td>departement</td>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="Etudiant: ${brefInfo}">
+            <td th:text="${Etudiant.getMatricule}"></td>
+            <td th:text="${Etudiant.getNom}"></td>
+            <td th:text="${Etudiant.getPrenom}"></td>
+            <td th:text="${Etudiant.getClasse}"></td>
+            <td th:text="${Etudiant.getDepartement}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+ <a th:href="@{/gestionEtudiant/etudiants/details}">
+     <input type="submit" value="Plus de detail"/>
+ </a>
+</body>
+</html>
